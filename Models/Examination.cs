@@ -14,6 +14,13 @@ namespace MedicalExaminationWebApi.Models
         [Key]
         public int id{get; set;}
 
+        public int patient_id{get; set;}
+
+        [ForeignKey(nameof(patient_id))]
+        public Patient? Patient{get; set;}
+
+        [Column(TypeName="nvarchar(50)")]
+        public string date{get; set;}
         [Column(TypeName="integer")]
         public int cholesterol{get; set;}
 

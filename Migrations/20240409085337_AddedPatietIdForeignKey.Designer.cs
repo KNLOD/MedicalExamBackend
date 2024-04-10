@@ -3,6 +3,7 @@ using MedicalExaminationWebApi.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MedicalExaminationWebApi.Migrations
 {
     [DbContext(typeof(ExaminationDbContext))]
-    partial class ExaminationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240409085337_AddedPatietIdForeignKey")]
+    partial class AddedPatietIdForeignKey
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -37,10 +40,6 @@ namespace MedicalExaminationWebApi.Migrations
 
                     b.Property<int>("createnin")
                         .HasColumnType("integer");
-
-                    b.Property<string>("date")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)");
 
                     b.Property<int>("glucose")
                         .HasColumnType("integer");
